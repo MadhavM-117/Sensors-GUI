@@ -1,0 +1,1 @@
+export const BASE_SENSOR_PATH = "/sys/class/hwmon";
