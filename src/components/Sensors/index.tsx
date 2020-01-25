@@ -7,7 +7,19 @@ import { SensorListingProps, SensorListingState, SensorProps, Sensor } from './i
 
 export const SensorItem: React.FC<SensorProps> = (props: SensorProps) => {
   const { name, temperatures, fans } = props.sensor;
-  return <div>{name}</div>;
+  return (
+    <div>
+      <h1>{name}</h1>
+      <h2>Temperatures</h2>
+      {temperatures.map(t => {
+        return <div><label>{t.label}{" - "}</label><span>{t.value}</span></div>;
+      })}
+      <h2>Fans</h2>
+      {fans.map(f => {
+        return <div>{f.value}</div>
+      })}
+    </div>
+  );
 }
 
 export class SensorListing extends React.Component<SensorListingProps, SensorListingState> {
@@ -115,7 +127,7 @@ export class SensorListing extends React.Component<SensorListingProps, SensorLis
     const { sensors } = this.state;
     return (
       <React.Fragment>
-        {sensors.map(s => <SensorItem sensor={s} key={s.name}/>)}
+        {sensors.map(s => <SensorItem sensor={s} key={s.name} />)}
       </React.Fragment>
     );
   }
