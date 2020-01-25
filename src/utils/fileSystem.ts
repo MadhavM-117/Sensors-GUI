@@ -1,9 +1,8 @@
-import util from 'util';
 import fs from 'fs';
 
-export const readdir = util.promisify(fs.readdir);
+export const readdir = fs.promises.readdir;
 
-export const readFile = util.promisify(fs.readFile);
+export const readFile = fs.promises.readFile;
 
 export function exists (path: string):Promise<boolean> {
     return new Promise((resolve) => {

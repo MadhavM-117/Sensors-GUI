@@ -115,7 +115,7 @@ export class SensorListing extends React.Component<SensorListingProps, SensorLis
     const { sensors } = this.state;
     return (
       <React.Fragment>
-        {sensors.map(s => <SensorItem sensor={s} />)}
+        {sensors.map(s => <SensorItem sensor={s} key={s.name}/>)}
       </React.Fragment>
     );
   }
